@@ -28,6 +28,26 @@ public class ManagerDictionaries {
 		}
 	}
 	
+	public int numbersTraductionsToEnglish() {
+		return englishDictionary.size(englishDictionary.getRoot());
+	}
 	
+	public void addWordToFrenchDictionary(Word word) {
+		frenchDictionary.insert(word);
+	}
+
+	public String traductionToFrench(String spanishWord) {
+		Word word=new Word(spanishWord, "");
+		word=frenchDictionary.searchData(word);
+		if (word==null) {
+			return "";
+		}else {
+			return word.getTranslation();
+		}
+	}
+
+	public int numbersTraductionsToFrench() {
+		return frenchDictionary.size(frenchDictionary.getRoot());
+	}
 
 }

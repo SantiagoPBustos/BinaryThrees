@@ -93,6 +93,22 @@ public class BinarySearchTree<T> {
 		return node.getNodeRight();
 	}
 	
+	public int size(NodeBinarySearchTree<T> node) {
+		int count=0;
+		if(isEmpty()==true) {
+			count=0;
+		}else {
+			count=1;
+		}
+		if(node.getNodeLeft() != null) {
+			count+=this.size(node.getNodeLeft());
+		}
+		if(node.getNodeRight() != null) {
+			count+=this.size(node.getNodeRight());
+		}
+		return count;
+	}
+	
 	public void show(NodeBinarySearchTree<T> node) {
 		System.out.println(node.getData());
 		if(node.getNodeLeft() != null) {
