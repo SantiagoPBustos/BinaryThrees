@@ -14,6 +14,22 @@ public class ManagerDictionaries {
 		frenchDictionary=new BinarySearchTree<Word>(comparator);
 	}
 	
+	public BinarySearchTree<Word> getEnglishDictionary() {
+		return englishDictionary;
+	}
+	
+	public void setEnglishDictionary(BinarySearchTree<Word> englishDictionary) {
+		this.englishDictionary = englishDictionary;
+	}
+	
+	public BinarySearchTree<Word> getFrenchDictionary() {
+		return frenchDictionary;
+	}
+	
+	public void setFrenchDictionary(BinarySearchTree<Word> frenchDictionary) {
+		this.frenchDictionary = frenchDictionary;
+	}
+	
 	public void addWordToEnglishDictionary(Word word) {
 		englishDictionary.insert(word);
 	}
@@ -48,6 +64,10 @@ public class ManagerDictionaries {
 
 	public int numbersTraductionsToFrench() {
 		return frenchDictionary.size(frenchDictionary.getRoot());
+	}
+	
+	public String showElements(BinarySearchTree<Word> dictionary) {
+		return dictionary.show(dictionary.getRoot());
 	}
 
 }

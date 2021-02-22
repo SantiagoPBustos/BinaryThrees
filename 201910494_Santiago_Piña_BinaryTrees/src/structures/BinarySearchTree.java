@@ -12,6 +12,18 @@ public class BinarySearchTree<T> {
 		this.comparator=comparator;
 	}
 	
+	public NodeBinarySearchTree<T> getRoot() {
+		return root;
+	}
+	
+	public NodeBinarySearchTree<T> getNodeLeft(NodeBinarySearchTree<T> node) {
+		return node.getNodeLeft();
+	}
+	
+	public NodeBinarySearchTree<T> getNodeRight(NodeBinarySearchTree<T> node) {
+		return node.getNodeRight();
+	}
+	
 	public void insert(T data) {
 		NodeBinarySearchTree<T> newNode=new NodeBinarySearchTree<T>(data);
 		NodeBinarySearchTree<T> aux=root;
@@ -62,6 +74,56 @@ public class BinarySearchTree<T> {
 		return result;
 	}
 	
+	public void delete(T data)throws Exception{
+		root=deleteNode(root,data);
+	}
+	
+	private NodeBinarySearchTree<T> deleteNode(NodeBinarySearchTree<T> node, T data) throws Exception {
+		if(node==null) {
+		    throw new Exception("Nodo no encontrado");
+		}else {
+			if(comparator.compare(data, node.getData())>0) {
+				NodeBinarySearchTree<T> right=deleteNode(node.getNodeRight(), data);
+				node.setNodeRight(right);
+			}else {
+				if(comparator.compare(data, node.getData())<0) {
+					NodeBinarySearchTree<T> left=deleteNode(node.getNodeLeft(), data);
+					node.setNodeLeft(left);
+				}else {
+					NodeBinarySearchTree<T> aux=node;
+					if(aux.getNodeLeft()==null) {
+						node=aux.getNodeRight();
+					}else {
+						if(aux.getNodeRight()==null) {
+							node=aux.getNodeLeft();
+						}else {
+							aux=replace(aux);
+						}
+					}
+					return null;
+				}
+			}
+		}
+		return node;
+	}
+
+	private NodeBinarySearchTree<T> replace(NodeBinarySearchTree<T> actual) {
+		NodeBinarySearchTree<T> a,p;
+		p=actual;
+		a=actual.getNodeLeft();
+		while (a.getNodeRight()!=null){
+		    p=a;
+		    a=a.getNodeRight();
+		}
+		actual.setData(a.getData());
+		if (p==actual) {
+		    p.setNodeLeft(a.getNodeLeft());
+		}else {
+		    p.setNodeRight(a.getNodeLeft());
+		}
+		return null;
+	}
+
 	@SuppressWarnings("null")
 	public T searchData(T data) {
 		NodeBinarySearchTree<T> aux=root;
@@ -81,18 +143,6 @@ public class BinarySearchTree<T> {
 		}
 	}
 	
-	public NodeBinarySearchTree<T> getRoot() {
-		return root;
-	}
-	
-	public NodeBinarySearchTree<T> getNodeLeft(NodeBinarySearchTree<T> node) {
-		return node.getNodeLeft();
-	}
-	
-	public NodeBinarySearchTree<T> getNodeRight(NodeBinarySearchTree<T> node) {
-		return node.getNodeRight();
-	}
-	
 	public int size(NodeBinarySearchTree<T> node) {
 		int count=0;
 		if(isEmpty()==true) {
@@ -109,14 +159,15 @@ public class BinarySearchTree<T> {
 		return count;
 	}
 	
-	public void show(NodeBinarySearchTree<T> node) {
-		System.out.println(node.getData());
+	public String show(NodeBinarySearchTree<T> node) {
+		String result="";
+		result+=node.getData().toString();
 		if(node.getNodeLeft() != null) {
-			this.show(node.getNodeLeft());
+			result+="\n"+this.show(node.getNodeLeft());
 		}
 		if(node.getNodeRight() != null) {
-			this.show(node.getNodeRight());
+			result+="\n"+this.show(node.getNodeRight());
 		}
+		return result; 
 	}
-
 }

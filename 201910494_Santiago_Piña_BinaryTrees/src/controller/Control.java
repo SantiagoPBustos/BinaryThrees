@@ -42,5 +42,11 @@ public class Control {
 				
 		//Numero de palabras
 		System.out.println(dictionaries.numbersTraductionsToFrench());
+		
+		//Mostrar elementos
+		System.out.println(dictionaries.showElements(dictionaries.getEnglishDictionary())+"\n");
+		System.out.println(dictionaries.showElements(dictionaries.getFrenchDictionary()));
+		
+		
 	}
 }
