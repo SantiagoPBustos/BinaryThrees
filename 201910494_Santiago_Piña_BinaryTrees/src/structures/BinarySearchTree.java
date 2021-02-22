@@ -99,8 +99,7 @@ public class BinarySearchTree<T> {
 						}else {
 							aux=replace(aux);
 						}
-					}
-					return null;
+					}aux=null;
 				}
 			}
 		}

@@ -70,4 +70,11 @@ public class ManagerDictionaries {
 		return dictionary.show(dictionary.getRoot());
 	}
 
+	public void delete(BinarySearchTree<Word> dictionary,Word word) {
+		try {
+			dictionary.delete(word);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

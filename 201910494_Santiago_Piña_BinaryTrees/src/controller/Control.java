@@ -43,6 +43,10 @@ public class Control {
 		//Numero de palabras
 		System.out.println(dictionaries.numbersTraductionsToFrench());
 		
+		//Borrar
+		dictionaries.delete(dictionaries.getEnglishDictionary(), new Word("Estudiante","Student"));
+		
+		
 		//Mostrar elementos
 		System.out.println(dictionaries.showElements(dictionaries.getEnglishDictionary())+"\n");
 		System.out.println(dictionaries.showElements(dictionaries.getFrenchDictionary()));
