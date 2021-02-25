@@ -51,6 +51,5 @@ public class Control {
 		System.out.println(dictionaries.showElements(dictionaries.getEnglishDictionary())+"\n");
 		System.out.println(dictionaries.showElements(dictionaries.getFrenchDictionary()));
 		
-		
 	}
 }
