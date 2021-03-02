@@ -11,10 +11,15 @@ public class Control {
 		dictionaries=new ManagerDictionaries();
 		
 		//Añadir palabras con su traduccion al diccionario de ingles
+		dictionaries.addWordToEnglishDictionary(new Word("D","O"));
+		dictionaries.addWordToEnglishDictionary(new Word("B","O"));
+		dictionaries.addWordToEnglishDictionary(new Word("Casa","House"));
 		dictionaries.addWordToEnglishDictionary(new Word("Arbol","Tree"));
 		dictionaries.addWordToEnglishDictionary(new Word("Papel","Paper"));
 		dictionaries.addWordToEnglishDictionary(new Word("Manzana","Apple"));
 		dictionaries.addWordToEnglishDictionary(new Word("Estudiante","Student"));
+		dictionaries.addWordToEnglishDictionary(new Word("O","O"));
+		dictionaries.addWordToEnglishDictionary(new Word("Queso","Cheese"));
 		
 		//Obtener traduccion
 		//Si retorna vacio la palabra no esta en el diccionario 
@@ -44,12 +49,11 @@ public class Control {
 		System.out.println(dictionaries.numbersTraductionsToFrench());
 		
 		//Borrar
-		dictionaries.delete(dictionaries.getEnglishDictionary(), new Word("Estudiante","Student"));
+//		dictionaries.delete(dictionaries.getEnglishDictionary(), new Word("Estudiante","Student"));
 		
 		
 		//Mostrar elementos
-		System.out.println(dictionaries.showElements(dictionaries.getEnglishDictionary())+"\n");
-		System.out.println(dictionaries.showElements(dictionaries.getFrenchDictionary()));
+		dictionaries.showElements(dictionaries.getEnglishDictionary());
 		
 	}
 }

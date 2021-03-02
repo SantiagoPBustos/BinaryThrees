@@ -74,6 +74,34 @@ public class BinarySearchTree<T> {
 		return result;
 	}
 	
+	public String preOrder(NodeBinarySearchTree<T> node) {
+		String result="";
+		result+=node.getData().toString();
+		if(node.getNodeLeft() != null) {
+			result+="\n"+this.preOrder(node.getNodeLeft());
+		}
+		if(node.getNodeRight() != null) {
+			result+="\n"+this.preOrder(node.getNodeRight());
+		}
+		return result; 
+	}
+	
+	public void inOrder(NodeBinarySearchTree<T> node) {
+		if(node!=null) {
+			inOrder(node.getNodeLeft());
+			System.out.println(node.getData().toString());
+			inOrder(node.getNodeRight());
+		}
+	}
+	
+	public void postOrder(NodeBinarySearchTree<T> node) {
+		if(node!=null) {
+			inOrder(node.getNodeLeft());
+			inOrder(node.getNodeRight());
+			System.out.println(node.getData().toString());
+		}
+	}
+	
 	public void delete(T data)throws Exception{
 		root=deleteNode(root,data);
 	}
@@ -158,15 +186,5 @@ public class BinarySearchTree<T> {
 		return count;
 	}
 	
-	public String show(NodeBinarySearchTree<T> node) {
-		String result="";
-		result+=node.getData().toString();
-		if(node.getNodeLeft() != null) {
-			result+="\n"+this.show(node.getNodeLeft());
-		}
-		if(node.getNodeRight() != null) {
-			result+="\n"+this.show(node.getNodeRight());
-		}
-		return result; 
-	}
+
 }

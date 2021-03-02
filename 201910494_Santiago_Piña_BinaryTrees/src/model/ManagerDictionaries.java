@@ -66,8 +66,8 @@ public class ManagerDictionaries {
 		return frenchDictionary.size(frenchDictionary.getRoot());
 	}
 	
-	public String showElements(BinarySearchTree<Word> dictionary) {
-		return dictionary.show(dictionary.getRoot());
+	public void showElements(BinarySearchTree<Word> dictionary) {
+		dictionary.postOrder(dictionary.getRoot());
 	}
 
 	public void delete(BinarySearchTree<Word> dictionary,Word word) {
