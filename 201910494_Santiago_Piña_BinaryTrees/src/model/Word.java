@@ -28,7 +28,7 @@ public class Word {
 
 	@Override
 	public String toString() {
-		return "[Palabra = "+spanishWord+", Traduccion = "+translation+"]";
+		return "["+spanishWord+translation+"]";
 	}
 
 }
